@@ -52,7 +52,7 @@ export default function Home(initialData) {
 };
 
 export const getStaticProps = async () => {
-  let catGiphys = await fetch(`https://api.giphy.com/v1/gifs/search?q=cats&api_key=6gw058lnlowg7ZinCm4aRjOdhFf6rv3f&limit=10`);
+  let catGiphys = await fetch(`https://api.giphy.com/v1/gifs/search?q=cats&api_key=${process.env.NEXT_PUBLIC_GIPHY_API_KEY}&limit=10`);
 
   catGiphys = await catGiphys.json();
 

@@ -30,7 +30,7 @@ export default Search;
 
 export const getServerSideProps = async (context) => {
   const searchTerm = context.query.searchTerm;
-  let giphys = await fetch(`https://api.giphy.com/v1/gifs/search?q=${searchTerm}s&api_key=6gw058lnlowg7ZinCm4aRjOdhFf6rv3f&limit=10`);
+  let giphys = await fetch(`https://api.giphy.com/v1/gifs/search?q=${searchTerm}s&api_key=${process.env.NEXT_PUBLIC_GIPHY_API_KEY}&limit=10`);
 
   giphys = await giphys.json();
 
