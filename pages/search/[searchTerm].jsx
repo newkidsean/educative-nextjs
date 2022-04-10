@@ -1,15 +1,19 @@
 import Head from "next/head";
+import Link from "next/link";
 import { useRouter } from "next/router";
+import Footer from "../../components/Footer";
 
 const Search = (initialData) => {
   const router = useRouter();
   return (
     <>
       <Head>
-        <title>Search</title>
+        <title>Search results for : {router.query.searchTerm}</title>
+        <meta name="description" content={initialData.giphys.map((each, idx) => each.title + ' ')}></meta>
         <link rel="icon" href="/favicon.ico" />
         <link rel="stylesheet" href="/styles.css" />
       </Head>
+      <p>Go <Link href="/"><a>home</a></Link></p>
       <h1>Search results for : {router.query.searchTerm}</h1>
 
       <div className="giphy-search-results-grid">
@@ -22,6 +26,7 @@ const Search = (initialData) => {
           )
         })}
       </div>
+      <Footer />
     </>
   )
 };
